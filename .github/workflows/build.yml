@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        environment: ${{ fromJSON(needs.get_default_envs.outputs.environments) }}
+        environment: ${{ fromJSON(github.event.inputs.enviroment || '["dig-octa-eth-ar-7out-7btn"]') }}
     steps:
     - uses: actions/checkout@v4
     - name: Set up Node.js
